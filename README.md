@@ -1,22 +1,24 @@
 # kodi-movie-preparer
-A python script to rename movie collection directories and leave them tidy in order for KODI to scan them
+### What this script is
+A python script to rename movie collection directories and leave them tidy in order for [KODI](http://www.kodi.tv) to scan them. You don't really need to use KODI. If you want to just standarize the names of your directories, this script could work for you.
+Why KODI? I formerly used [Medianizer](http://www.medianizer.com), the Best movie organizer I found for Windows. When I evolved into GNU/Linux, I tried to run Medianizer through [Wine](http://www.winehq.org) (windows emulator), but I had some displaying problems. Then I found KODI and I sensed it was the solution I was looking for since a long time ago. And, of course, Libre Software.
 
+Some people have been known of copying copyrighted movies in their disks, and using KODI for piracy purposes. That use infringes copyright and is not approved by this script original coder.
+
+### Example
 This is a (supposedly) simply script. Its purpose is to achieve clean movie folder naming, like:
 *Movie Name (Year)*.
 i.e:
 * The Elephants Dream (2006)
 * Tetris (2010)
-
+### Why this?
 Why this format? Because it is what KODI recommends:
 http://kodi.wiki/view/Naming_video_files/Movies#Naming_conventions
 
 I got overwhelmed by more complex options like [FileBot](http://www.filebot.net), [MediaElch](http://www.kvibes.de/mediaelch) and [tinyMediaManager](http://www.tinymediamanager.org).  
 
-Please notice that this script renames ONLY directories, and not any files. So, it has to be run from the root directory where you store your movie collection, and assumes that each directory is a movie.
 
-This script DOES NOT add a year to a directory that does not already have a year. For that, you could try [FileBot](http://www.filebot.net), [MediaElch](http://www.kvibes.de/mediaelch) or [tinyMediaManager](http://www.tinymediamanager.org).  at 
-
-## What This Script Does (and in what situations it works)
+### What This Script Does (and in what situations it works)
 It does the following:
 * Convert underscores("_"), and periods(".") into whitespace. i.e.
     * The.Elephants.Dream(2006) ===> The Elephants Dream (2006)    
@@ -32,4 +34,10 @@ It does the following:
     * Tetris_2010_by_super_duper_and_his_4_boys ===> Tetris (2010)
     
  And that's it. Pretty simple, no? But as it turns out it solves most the mess in movie folders.
+ 
+ ### What this script does not do
+ 
+ Please notice that this script renames ONLY directories, and not any files. So, it has to be run from the root directory where you store your movie collection, and assumes that each directory is a movie.
+
+This script DOES NOT add a year to a directory that does not already have a year. For that, you could try [FileBot](http://www.filebot.net), [MediaElch](http://www.kvibes.de/mediaelch) or [tinyMediaManager](http://www.tinymediamanager.org).  at 
 
