@@ -39,5 +39,11 @@ It does the following:
  
  Please notice that this script renames ONLY directories, and not any files. So, it has to be run from the root directory where you store your movie collection, and assumes that each directory is a movie.
 
-This script DOES NOT add a year to a directory that does not already have a year. For that, you could try [FileBot](http://www.filebot.net), [MediaElch](http://www.kvibes.de/mediaelch) or [tinyMediaManager](http://www.tinymediamanager.org).  at 
+This script DOES NOT add a year to a directory that does not already have a year. For that, you could try [FileBot](http://www.filebot.net), [MediaElch](http://www.kvibes.de/mediaelch) or [tinyMediaManager](http://www.tinymediamanager.org).
 
+### How to use it
+ You can download the `kodi-movie-preparer.py` python file (notice the .py extension) from this website. To run it, you'll need Python installed on your system. You can install it on any platform you can imagine. Most Linux distributions carry it pre-installed Just google something like "Install Python on (*"type the name of your operating system here"*).
+ Once you have python installed, just run `python kodi-movie-preparer.py`
+
+### Notes about the coding
+ I am pretty sure this script has ugly messy and stupid coding. This is my first script so I am happy anyway, but I would love if any good-willing being would pour its code wisdom with the purpose of making this script better. Thanks in advance.
