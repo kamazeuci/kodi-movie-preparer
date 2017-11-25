@@ -1,6 +1,6 @@
 # kodi-movie-preparer
 ### What this script is
-A python script to rename movie collection directories and leave them tidy in order for [KODI](http://www.kodi.tv) to scan them. You don't really need to use KODI. If you want to just standarize the names of your directories, this script could work for you.
+A [python](http://www.python.org) script to rename movie collection directories and leave them tidy in order for [KODI](http://www.kodi.tv) to scan them. You don't really need to use KODI. If you want to just standarize the names of your directories, this script could work for you.
 Why KODI? I formerly used [Medianizer](http://www.medianizer.com), the Best movie organizer I found for Windows. When I evolved into GNU/Linux, I tried to run Medianizer through [Wine](http://www.winehq.org) (windows emulator), but I had some displaying problems. Then I found KODI and I sensed it was the solution I was looking for since a long time ago. And, of course, Libre Software.
 
 Some people have been known of copying copyrighted movies in their disks, and using KODI for piracy purposes. That use infringes copyright and is not approved by this script original coder.
@@ -33,7 +33,7 @@ It does the following:
     * The Elephants Dream (2006) [Johhny.Bravo.HD.1080] ===> The Elephants Dream (2006)
     * Tetris_2010_by_super_duper_and_his_4_boys ===> Tetris (2010)
     
- And that's it. Pretty simple, no? But as it turns out it solves most the mess in movie folders.
+ And that's it. Pretty simple, no? But as it turns out it solves most the mess in movie folders. Anyway, the script is exhaustively commented so with a minimum coding knowledge you should be able to make it fit your specific need. If so, Please DO share here!
  
  ### What this script does not do
  
@@ -46,4 +46,4 @@ This script DOES NOT add a year to a directory that does not already have a year
  Once you have python installed, just run `python kodi-movie-preparer.py`
 
 ### Notes about the coding
- I am pretty sure this script has ugly messy and stupid coding. This is my first script so I am happy anyway, but I would love if any good-willing being would pour its code wisdom with the purpose of making this script better. Thanks in advance.
+ I am pretty sure this script has ugly messy and stupid coding. This is my first script so I am happy anyway, but I would love if any good-willing being would pour its code wisdom with the purpose of making this script better. I tried to comment everything to make it easy to read. Thanks in advance.
