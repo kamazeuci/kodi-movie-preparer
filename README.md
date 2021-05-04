@@ -43,7 +43,8 @@ This script DOES NOT add a year to a directory that does not already have a year
 
 ### How to use it
  You can download the `kodi-movie-preparer.py` python file (notice the .py extension) from this website. To run it, you'll need Python installed on your system. You can install it on any platform you can imagine. Most Linux distributions carry it pre-installed Just google something like "Install Python on (*"type the name of your operating system here"*).
- Once you have python installed, just run `python kodi-movie-preparer.py`
+ Once you have python installed, just run `python2 kodi-movie-preparer.py`
+ I think you need python2 because in Python 3 `print` is a function and in Python 2 `print` is a statement.
 
 ### Notes about the coding
  I am pretty sure this script has ugly messy and stupid coding. This is my first script so I am happy anyway, but I would love if any good-willing being would pour its code wisdom with the purpose of making this script better. I tried to comment everything to make it easy to read. Thanks in advance.
