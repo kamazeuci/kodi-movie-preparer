@@ -3,7 +3,6 @@
 A [python](http://www.python.org) script to rename movie collection directories and leave them tidy in order for [KODI](http://www.kodi.tv) to scan them. You don't really need to use KODI. If you want to just standarize the names of your directories, this script could work for you.
 Why KODI? I formerly used [Medianizer](http://www.medianizer.com), the Best movie organizer I found for Windows. When I evolved into GNU/Linux, I tried to run Medianizer through [Wine](http://www.winehq.org) (windows emulator), but I had some displaying problems. Then I found KODI and I sensed it was the solution I was looking for since a long time ago. And, of course, Libre Software.
 
-Some people have been known of copying copyrighted movies in their disks, and using KODI for piracy purposes. That use infringes copyright and is not approved by this script original coder.
 
 ### Example
 This is a (supposedly) simply script. Its purpose is to achieve clean movie folder naming, like:
