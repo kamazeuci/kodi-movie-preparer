@@ -1,5 +1,5 @@
 # variable naming conventions:
-# "year" corresponds to the year substring. 
+# "year" corresponds to the year substring.
 # "name" corresponds to the movie name substring.
 # "title" corresponds to the whole final directory name (name + year)
 # "Brackets"
@@ -8,8 +8,13 @@
 import os       # This module allows us to interact with files and directories. I use it to first list all directories and then to make the final renaming of directory names.
 import re      # This is a module used to work with regular expressions. We need them to search for patterns in the directory name, in order to find the year substring.
 
+# old python2 function
+#lista = os.walk(".").next()[1]    # List all directories in actual path.
 
-lista = os.walk(".").next()[1]    # List all directories in actual path.
+# Initialize a list with all the directories (and not files) in the current path)
+path = os.getcwd()
+
+lista = [f for f in os.listdir(path) if os.path.isdir(os.path.join(path, f))]
 
 #initiate 5 different counters
 counterPelis = 0  # All directories listed
@@ -22,7 +27,7 @@ counterNoYear = 0 # Directories with no year
 print("------- Original Directories -------")
 for peli in lista:
     counterPelis = counterPelis + 1     # First lets count every directory (movie)  on the list
-print counterPelis                                  # Tell the user how many directories he has to work with
+print(counterPelis)                                  # Tell the user how many directories he has to work with
 
 print("------- Character Replaced Directories ---------")
 for peli in lista:
@@ -31,49 +36,50 @@ for peli in lista:
         TitleReplacedPeriods = peli.replace(".", " ")            #replace periods with whitespace
         TitleReplacedPeriodsAndDashes = TitleReplacedPeriods.replace("_", " ") # replace underscores with whitespace
         os.rename(peli, TitleReplacedPeriodsAndDashes)          #rename file
-        print(peli + " ===> " + TitleReplacedPeriodsAndDashes)
+        print((peli + " ===> " + TitleReplacedPeriodsAndDashes))
     else:
         pass
-     
+
 #if counterChar == 0:            #If it finds no dashes or underscores
     #print("No directory  for character renaming has been found")
 #else:                                      #If it finds any dashes or underscores
     #print("Character Renamed Directories =" +str(counterChar))     # print the number of folders with replaced characters.
 
-lista = os.walk(".").next()[1]    # List all directories again, to update the list with the recently renamed directories.
+#ista = os.walk(".").next()[1]    # List all directories again, to update the list with the recently renamed directories.
+lista = [f for f in os.listdir(path) if os.path.isdir(os.path.join(path, f))]
 
 print ("------------ Finding a Year ------------------------")
 # go ahead and find movies that have a year
 
 for peli in lista:                                  # for each entry in the list of directories
-  
-    
-    if (re.search('.*(\[((19|20)\d{2})\]).*', peli)) > 0:   # see if you can find a year within brackets
+
+
+    if re.search('.*(\[((19|20)\d{2})\]).*', peli):   # see if you can find a year within brackets
         counterYearBrackets = counterYearBrackets + 1
-        yearWithBrackets =  (re.search('(.*)(\[((19|20)\d{2})\]).*', peli))   #define a variable 
+        yearWithBrackets =  (re.search('(.*)(\[((19|20)\d{2})\]).*', peli))   #define a variable
         nameBrackets = yearWithBrackets.group(1)       #that contains the substring
         nameBrackets = nameBrackets.strip()      #strip possible trailing or leading whitespace
-        yearBrackets = yearWithBrackets.group(2)  
-        
+        yearBrackets = yearWithBrackets.group(2)
+
         yearBracketsReplaced = yearBrackets.replace("[","(")                    # replace opening bracket
         yearBracketsReplaced = yearBracketsReplaced.replace("]",")")    # replace closing bracket
         titleYearBracketsReplaced = (nameBrackets + " " + yearBracketsReplaced)
-        print("Brackets Changed: " + peli + " ====> " + titleYearBracketsReplaced)
+        print(("Brackets Changed: " + peli + " ====> " + titleYearBracketsReplaced))
         os.rename(peli, titleYearBracketsReplaced)
-        
-       
-        
-    elif (re.search('.*\(((19|20)\d{2})\).*', peli)) > 0:    # see if you can find a year within parenthesis
+
+
+
+    elif (re.search('.*\(((19|20)\d{2})\).*', peli)):    # see if you can find a year within parenthesis
         counterYearParenthesis = counterYearParenthesis + 1
         stringWithParenthesis = (re.search('(.*)\(((19|20)\d{2})\).*', peli))
         yearWithParenthesis = stringWithParenthesis.group(2)
         movieTitleParenthesis = stringWithParenthesis.group(1)
         movieTitleParenthesis = movieTitleParenthesis.strip()
         titleYearWithParenthesis = (movieTitleParenthesis + " (" + yearWithParenthesis + ")")
-        print("Movies already with Parenthesis: " + peli + " ====> " + titleYearWithParenthesis)
+        print(("Movies already with Parenthesis: " + peli + " ====> " + titleYearWithParenthesis))
         os.rename(peli, titleYearWithParenthesis)
-        
-    elif (re.search('(.*)((19|20)\d{2})(.*)', peli)) > 0:  #See if you can find a year substring
+
+    elif (re.search('(.*)((19|20)\d{2})(.*)', peli)):  #See if you can find a year substring
         print(peli)            #print the name of the movie you found a year substring on.
         yearNumber = (re.search('(.*)((19|20)\d{2})(.*)', peli))    # name the year substring as "yearnumber"
         movieTitle = yearNumber.group(1)
@@ -83,36 +89,36 @@ for peli in lista:                                  # for each entry in the list
         postShit = yearNumber.group(3)
         counterYear = counterYear + 1
         movieName = (movieTitle + " " + movieYear)  #count 1 more movie with year
-    
-        print("Parenthesis added: " + peli + " ====>" + movieName)
+
+        print(("Parenthesis added: " + peli + " ====>" + movieName))
         os.rename(peli,  movieName)
         # print("Shit: " + postShit)
-        #Find years between brackets and replace the brackets for parenthesis    
+        #Find years between brackets and replace the brackets for parenthesis
         # Find years already between parenthesis, don't change them but count them.
     else:
-        
-        print("Movie without year: " + peli)
+
+        print(("Movie without year: " + peli))
         counterNoYear = counterNoYear + 1
-        
+
    #if (YearNumber > 0):
         #CounterYear = CounterYear + 1
         #print peli
         #print YearNumber
-print("Directories = "+ str(counterPelis))
-print("Directories with characters replaced = " + str(counterChar))
-print("Directories with valid year = " + str(counterYear))
-print("Directories with Brackets replaced = " + str(counterYearBrackets))
-print("Directories that already had parenthesis = " + str(counterYearParenthesis))
-print("Directories with no valid year = " +str(counterNoYear))
+print(("Directories = "+ str(counterPelis)))
+print(("Directories with characters replaced = " + str(counterChar)))
+print(("Directories with valid year = " + str(counterYear)))
+print(("Directories with Brackets replaced = " + str(counterYearBrackets)))
+print(("Directories that already had parenthesis = " + str(counterYearParenthesis)))
+print(("Directories with no valid year = " +str(counterNoYear)))
 
             #YearName = peli.replace([19-20][0-9][0-9],"("[19-20][0-9][0-9]")")
             #print(YearName)
-                  
+
 ## Put $YEAR inside parenthesis but only if there are no parenthesis already.
 
 #if $YEAR = entre parentesis
 	#$YEAROK = $YEAR
-	
+
 #if $YEAR = entre brackets
 	#$YEAROK = $YEAR - brackets + parenthesis
 
@@ -121,6 +127,3 @@ print("Directories with no valid year = " +str(counterNoYear))
 
 #rename $YEAR to $YEAROK
 ## Strip everything after $YEAR
-
-
-
